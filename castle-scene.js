@@ -1,5 +1,10 @@
 (() => {
   const sky = document.querySelector('.archive .castle-sky');
+  const frame = document.querySelector('.archive > .frame');
+  const background = new Image();
+  background.onload = () => frame.classList.remove('castle-loading');
+  background.src = 'castle-home-optimized.jpg';
+  if (background.complete && background.naturalWidth) background.onload();
   const world = sky.querySelector('.castle-world');
   const portalWorld = document.querySelector('.castle-portal-world');
   function alignWorld() {

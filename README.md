@@ -30,4 +30,4 @@ public: true
 
 `assets/pen-on-paper.mp3` 为 [SFXMint 的 Pencil Writing 01](https://sfxmint.com/sounds/pencil-writing-01)，以 CC0 1.0 发布。页面播放时放慢至原速度的 90%，音量调低；原音频保存在本地。
 
-`assets/castle-original.wav` 和蜡烛点亮、吹灭音效是为本项目合成的原创音频，不包含电影原曲或其他第三方录音。
+`assets/castle-mystery.wav` 和蜡烛点亮、吹灭音效是为本项目合成的原创音频，不包含电影原曲或其他第三方录音。
