@@ -1,0 +1,5 @@
+const test=require('node:test'),assert=require('node:assert/strict'),fs=require('node:fs'),vm=require('node:vm');
+const {marked}=require('../vendor/marked.min.js');
+function setup(){let sanitized=false;const window={marked,DOMPurify:{sanitize(html){sanitized=true;return html}}};vm.runInNewContext(fs.readFileSync('article-markdown.js','utf8'),{window});return {window,wasSanitized:()=>sanitized}}
+test('renders paragraphs, emphasis, lists, tables and code with sanitization',()=>{const f=setup();const out=f.window.renderArticleMarkup('# Title\n\n**bold**\n\n- item\n\n| A | B |\n|---|---|\n| 1 | 2 |\n\n```js\nconsole.log(1)\n```','Title');assert.match(out,/<strong>bold<\/strong>/);assert.match(out,/<ul>/);assert.match(out,/<table>/);assert.match(out,/<pre>/);assert.doesNotMatch(out,/<h1>Title/);assert.equal(f.wasSanitized(),true)});
+test('displays Obsidian link aliases as text without inventing links',()=>{const f=setup();const out=f.window.renderArticleMarkup('参见 [[PRIVATE|显示名]] 和 `[[code]]`','');assert.match(out,/显示名/);assert.doesNotMatch(out,/PRIVATE/);assert.match(out,/<code>\[\[code\]\]<\/code>/)});

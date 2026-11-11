@@ -1,0 +1,43 @@
+/* Quiet magic behind the reading and project content. */
+.project-space[data-theme="archive"]{position:relative;isolation:isolate;overflow-x:clip;background-image:radial-gradient(ellipse at 15% 10%,#47402c66,transparent 35%),radial-gradient(ellipse at 85% 0%,#34382b,transparent 42%),linear-gradient(145deg,#191c17,#101510)}
+.project-space[data-theme="archive"] .project-wrap{position:relative;z-index:1}
+.archive-ambience{position:fixed;inset:0;overflow:hidden;pointer-events:none;z-index:0;opacity:0;transition:opacity 1s ease}
+.project-space[data-theme="archive"].visible .archive-ambience{opacity:1}
+.archive-ambience::before,.archive-ambience::after{content:"";position:absolute;inset:0;background-image:radial-gradient(circle,#ead5a6 0 1px,transparent 1.7px),radial-gradient(circle,#f6dfaf 0 1px,transparent 2px);background-size:151px 173px,239px 211px;background-position:13px 28px,83px 105px;opacity:.14;animation:archive-glimmer 7s ease-in-out infinite alternate}
+.archive-ambience::after{background-size:271px 247px,197px 289px;background-position:80px 50px,28px 16px;opacity:.08;animation-delay:-3s}
+.archive-feather{position:absolute;top:-18vh;width:clamp(16px,2.1vw,28px);height:68px;background:url('assets/archive-feather.svg') center / contain no-repeat;opacity:0;will-change:transform,opacity;animation:archive-feather-fall var(--duration) linear var(--delay) infinite}
+.archive-feather:nth-child(1){left:7%;--duration:25s;--delay:-7s}
+.archive-feather:nth-child(2){left:24%;--duration:32s;--delay:-22s;width:19px}
+.archive-feather:nth-child(3){left:52%;--duration:29s;--delay:-12s;width:17px}
+.archive-feather:nth-child(4){left:76%;--duration:34s;--delay:-26s;width:23px}
+.archive-feather:nth-child(5){left:92%;--duration:27s;--delay:-16s;width:18px}
+@keyframes archive-feather-fall{0%{opacity:0;transform:translate3d(0,0,0) rotate(-25deg)}12%{opacity:.42}45%{transform:translate3d(32px,48vh,0) rotate(24deg)}82%{opacity:.32}100%{opacity:0;transform:translate3d(-12px,125vh,0) rotate(-18deg)}}
+@keyframes archive-glimmer{from{opacity:.06}to{opacity:.19}}
+@media(max-width:720px){.archive-feather:nth-child(2),.archive-feather:nth-child(4){display:none}.archive-feather{opacity:.7}}
+@media(prefers-reduced-motion:reduce){.archive-ambience{display:none}}
+
+/* Extra depth and subtle spellwork in the project archive. */
+#project-space .archive-ambience{z-index:2}
+#project-space .archive-ambience::before{background-size:97px 119px,171px 163px;filter:drop-shadow(0 0 4px #eacb7b)}
+#project-space .archive-feather{background-image:url('assets/archive-feather-real.png');width:clamp(22px,2.5vw,38px);height:84px;animation-name:feather-drift;filter:drop-shadow(0 0 5px #e9d6a84d)}
+#project-space .archive-feather:nth-child(3n){width:19px;filter:blur(.35px);animation-name:feather-distant}
+#project-space .archive-feather:nth-child(4n){width:clamp(28px,3vw,43px);animation-name:feather-near}
+#project-space .archive-feather:nth-child(6){left:13%;--duration:30s;--delay:-18s}
+#project-space .archive-feather:nth-child(7){left:32%;--duration:24s;--delay:-8s}
+#project-space .archive-feather:nth-child(8){left:43%;--duration:34s;--delay:-27s}
+#project-space .archive-feather:nth-child(9){left:62%;--duration:28s;--delay:-19s}
+#project-space .archive-feather:nth-child(10){left:84%;--duration:32s;--delay:-4s}
+#project-space .archive-feather:nth-child(11){left:3%;--duration:33s;--delay:-26s}
+#project-space .archive-feather:nth-child(12){left:38%;--duration:26s;--delay:-17s}
+#project-space .archive-feather:nth-child(13){left:69%;--duration:31s;--delay:-9s}
+#project-space .archive-feather:nth-child(14){left:96%;--duration:28s;--delay:-24s}
+#project-space .archive-feather:nth-child(15){left:56%;--duration:35s;--delay:-31s}
+@keyframes feather-drift{0%{opacity:0;transform:translate3d(0,0,0) rotate(-28deg)}12%{opacity:.44}36%{transform:translate3d(28px,38vh,0) rotate(14deg)}65%{transform:translate3d(-12px,76vh,0) rotate(-20deg)}85%{opacity:.4}100%{opacity:0;transform:translate3d(22px,125vh,0) rotate(25deg)}}
+@keyframes feather-distant{0%{opacity:0;transform:translate3d(0,0,0) rotate(22deg)}15%{opacity:.24}65%{transform:translate3d(-25px,76vh,0) rotate(-15deg)}85%{opacity:.2}100%{opacity:0;transform:translate3d(10px,125vh,0) rotate(18deg)}}
+@keyframes feather-near{0%{opacity:0;transform:translate3d(0,0,0) rotate(-32deg)}15%{opacity:.48}50%{transform:translate3d(38px,55vh,0) rotate(20deg)}85%{opacity:.38}100%{opacity:0;transform:translate3d(-18px,125vh,0) rotate(-23deg)}}
+.magic-ring{position:absolute;width:min(45vw,440px);aspect-ratio:1;border:1px solid #d5b87524;border-radius:50%;box-shadow:0 0 30px #e5c37b12,inset 0 0 28px #e5c37b0b;animation:spell-turn 55s linear infinite}
+.magic-ring::before,.magic-ring::after{content:"";position:absolute;border:1px dashed #e2c98230;border-radius:50%}.magic-ring::before{inset:5%}.magic-ring::after{inset:11%;border-style:solid;border-color:#dfc37d1a}
+.magic-ring-one{top:-20%;right:-12%}.magic-ring-two{bottom:-26%;left:-16%;width:min(35vw,320px);animation-direction:reverse}
+@keyframes spell-turn{to{transform:rotate(360deg)}}
+@media(max-width:720px){#project-space .archive-feather:nth-child(2n){display:none}#project-space .archive-feather:nth-child(2),#project-space .archive-feather:nth-child(4){display:none}.magic-ring{width:65vw}}
+@media(prefers-reduced-motion:reduce){#project-space .archive-ambience{display:none}}
