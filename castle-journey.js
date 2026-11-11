@@ -20,13 +20,11 @@
     travelling = true;
     let timeout, departure;
     if (matchMedia('(prefers-reduced-motion: reduce)').matches) { finish(); return; }
-    window.scrollTo(0, 0);
-    const door = archive.querySelector('.castle-door').getBoundingClientRect();
-    rider.style.setProperty('--door-x', `${door.left + door.width / 2}px`);
-    rider.style.setProperty('--door-y', `${door.top + door.height / 2}px`);
+    window.scrollTo({top:0,left:0,behavior:'instant'});
+    window.refreshCastleScene?.();
     rider.addEventListener('animationend', onEnd);
     document.body.classList.add('journey-active');
-    departure = setTimeout(() => { if (travelling) rider.classList.add('is-flying'); }, 1100);
+    departure = setTimeout(() => { if (!travelling) return; window.refreshCastleScene?.(); const door=archive.querySelector('.castle-door').getBoundingClientRect(); rider.style.setProperty('--door-x', `${door.left+door.width/2}px`); rider.style.setProperty('--door-y', `${door.top+door.height/2}px`); rider.classList.add('is-flying'); }, 1100);
     timeout = setTimeout(finish, 5000);
   };
 })();

@@ -10,6 +10,7 @@
   function alignWorld() {
     const width = sky.offsetWidth;
     const height = sky.offsetHeight;
+    if (!width || !height) return;
     const scale = Math.max(width / 1670, height / 941);
     // The castle is the last background layer; earlier layers are gradients.
     const positions = getComputedStyle(sky).backgroundPositionX.split(',');
@@ -20,6 +21,10 @@
     layer.style.setProperty('--world-scale', scale);
     }
   }
+  window.refreshCastleScene=alignWorld;
   alignWorld();
   window.addEventListener('resize', alignWorld);
+  window.addEventListener('pageshow', alignWorld);
+  if (window.visualViewport) window.visualViewport.addEventListener('resize',alignWorld);
+  if (typeof ResizeObserver !== 'undefined') new ResizeObserver(alignWorld).observe(sky);
 })();
