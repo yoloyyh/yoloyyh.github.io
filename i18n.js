@@ -1,7 +1,7 @@
 (() => {
   const translations = {
     '✳ YOLOYYH / 魔法城堡':'✳ YOLOYYH / THE MAGIC CASTLE',
-    '你好，我是':'Hello, I’m','yoloyyh。':'yoloyyh.',
+    '你好，我是':'Hello, I’m','yoloyyh':'yoloyyh',
     '城堡的灯火还亮着。穿过大门，走进我的魔法档案馆，探索安全、技术和创造的故事。':'The castle lights are still on. Step inside my magical archive and explore stories of security, technology, and creation.',
     '✦ 进入魔法档案馆　→':'✦ Enter the archive　→','◇ 直接查看项目':'◇ Explore projects',
     '进入档案馆':'Enter the archive','进入档案馆，打开进入档案馆':'Enter the archive',
@@ -23,7 +23,7 @@
     '猫头鹰来信':'Owl post','打开猫头鹰送来的信':'Open the owl’s letter','欢迎来到 yoloyyh 的魔法城堡。穿过大门，探索项目书架与 AI 资料。':'Welcome to yoloyyh’s magic castle. Step inside to explore projects and AI reading notes.','关于我':'About me','文章与联系':'Notes & contact',
     '这里可以放你的职业介绍、关注的安全方向和联系方式。':'A place for your introduction, security interests, and contact information.',
     '这里可以展示技术文章、思考记录以及联系入口。':'A place for technical articles, notes, and contact information.',
-    'CONCEPT PREVIEW / 示例内容':'CONCEPT PREVIEW / PLACEHOLDER','这里是交互示意，实际内容将根据你的经历填写。':'This is a placeholder for your own content.','关闭':'Close','← 返回档案馆':'← Back to the archive','◈ AI READING ROOM / AI 资料与思考':'◈ AI READING ROOM','READING ROOM / 学习与思考':'READING ROOM / NOTES','翻开书页，':'Turn a page,','继续探索':'keep exploring','来自本地知识库的 AI 学习资料、技术分析与思考。':'AI learning materials, technical analysis, and reflections from the local knowledge base.','仅在本机预览':'Local preview only','不会自动发布到公开网站':'Never published automatically','搜索文章标题或内容':'Search article titles or text','搜索文章':'Search articles','没有找到文章，请尝试其他关键词。':'No articles found. Try another keyword.','← 返回文章列表':'← Back to articles','AI 安全 / 阅读笔记':'AI SECURITY / READING NOTES','AI 学习 / 阅读笔记':'AI LEARNING / READING NOTES','本机预览：文章来自本地 Obsidian 知识库，不会自动发布。':'Local preview: this article comes from your Obsidian vault and will not be published automatically.',
+    'CONCEPT PREVIEW / 示例内容':'CONCEPT PREVIEW / PLACEHOLDER','这里是交互示意，实际内容将根据你的经历填写。':'This is a placeholder for your own content.','关闭':'Close','← 返回档案馆':'← Back to the archive','◈ AI READING ROOM / AI 资料与思考':'◈ AI READING ROOM','READING ROOM / 学习与思考':'READING ROOM / NOTES','翻开书页':'Turn a page','继续探索':'keep exploring','来自本地知识库的 AI 学习资料、技术分析与思考。':'AI learning materials, technical analysis, and reflections from the local knowledge base.','仅在本机预览':'Local preview only','不会自动发布到公开网站':'Never published automatically','搜索文章标题或内容':'Search article titles or text','搜索文章':'Search articles','没有找到文章，请尝试其他关键词。':'No articles found. Try another keyword.','← 返回文章列表':'← Back to articles','AI 安全 / 阅读笔记':'AI SECURITY / READING NOTES','AI 学习 / 阅读笔记':'AI LEARNING / READING NOTES','本机预览：文章来自本地 Obsidian 知识库，不会自动发布。':'Local preview: this article comes from your Obsidian vault and will not be published automatically.',
     '♫ 音乐 · 开启':'♫ Music · On','♫ 音乐 · 关闭':'♫ Music · Off','播放背景音乐':'Play background music','关闭背景音乐':'Stop background music','音乐无法播放，请检查音频文件。':'Unable to play music. Please check the audio file.'
   };
   let language = 'zh';
