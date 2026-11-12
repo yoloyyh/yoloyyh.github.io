@@ -17,7 +17,8 @@
       function draw(now){
         if(!content||!node.isConnected||!modal.classList.contains('open')){window.stopLetterWriting();return}
         if(started===undefined)started=now;
-        const count=Math.min(node.length,Math.max(1,Math.ceil((now-started)/duration*node.length)));
+        let count=Math.min(node.length,Math.max(1,Math.ceil((now-started)/duration*node.length)));
+        while(count<node.length&&/[\r\n]/.test(node.data?.[count-1]||''))count++;
         const range=document.createRange();range.setStart(node,count-1);range.setEnd(node,count);const rect=range.getBoundingClientRect();const box=content.getBoundingClientRect();
         const x=Math.max(0,Math.min(box.width,rect.right-box.left));const top=Math.max(0,rect.top-box.top);const bottom=Math.min(box.height,rect.bottom-box.top+3);
         content.style.clipPath=`polygon(0 0,100% 0,100% ${top}px,${x}px ${top}px,${x}px ${bottom}px,0 ${bottom}px)`;
