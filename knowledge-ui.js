@@ -19,7 +19,7 @@
  function anchorHotspots(){
   const width=scene.clientWidth,height=scene.clientHeight;if(!width||!height)return;
   const positionX=window.innerWidth<=720?.58:.5;
-  for(const [selector,pointX,pointY] of [['.one',.18,.47],['.two',.70,.73],['.three',.46,.82],['.four',.64,.45]]){
+  for(const [selector,pointX,pointY] of [['.one',.18,.47],['.two',.70,.73],['.three',.48,.86],['.four',.64,.45]]){
    const el=scene.querySelector(selector),dot=el.querySelector('.hotspot-dot');el.style.right='auto';el.style.transform='translateY(-50%)';
    const place=window.InteriorPosition.placeHotspot({width,height,imageWidth:1670,imageHeight:942,positionX,pointX,pointY,buttonWidth:el.offsetWidth,dotOffset:dot.offsetLeft+dot.offsetWidth/2});
    el.style.left=place.left+'px';el.style.top=place.top+'px';
