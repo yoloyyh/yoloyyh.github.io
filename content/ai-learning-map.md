@@ -1,68 +1,57 @@
 ---
-title: AI 学习地图：从官方文档、开源项目到安全实践
+title: AI 学习地图：从文档到实践
 public: true
-updated: 2026-11-11
+updated: 2026-11-12
 ---
-# AI 学习地图：从官方文档、开源项目到安全实践
+# AI 学习地图：从文档到实践
 
-大模型领域更新很快。比起追逐每个新名词，我更倾向于把信息分成四层：**官方文档确认能力边界，教程补齐基础，开源项目观察工程实现，安全与资讯站点发现需要继续验证的问题**。
+AI 资料太多，我把常用入口分成了几类：想了解产品和接口，先查官方文档；想动手，跟着教程做；想研究 Agent 安全，再看开源项目和测试方法。
 
-这篇文章整理我常用的一组入口，并从安全开发者的角度说明每类资源值得看什么。产品能力和项目实现会变化，具体用法以各自的最新文档和代码为准。
+## 官方文档
 
-## 一、官方文档：确认能力与边界
+这些文档适合在动手时随查随用。
 
-### Claude：模型与 Agent 集成
+- [Claude Platform](https://platform.claude.com/docs/en/home)：Claude 的 API、工具调用和开发指南。
+- [Claude Code](https://code.claude.com/docs/en/overview)：了解 Claude Code 的使用、配置和扩展方式。
+- [Claude Cookbooks](https://github.com/anthropics/claude-cookbooks)：Claude 相关的代码示例和实践笔记。
+- [Anthropic Engineering](https://www.anthropic.com/engineering)：Agent、工具设计和工程实践文章。
+- [ChatGPT Learn](https://learn.chatgpt.com/docs)：了解 ChatGPT 的功能和使用方式。
+- [OpenAI 开发者文档](https://developers.openai.com/api/docs)：查询 API、模型、工具和 Agent 开发资料。
+- [OpenAI Cookbook](https://github.com/openai/openai-cookbook)：通过示例学习 OpenAI API 的常见用法。
+- [LangChain](https://docs.langchain.com/oss/python/langchain/overview)：了解如何组合模型、工具和 Agent。
+- [LangGraph](https://docs.langchain.com/oss/python/langgraph/overview)：了解如何组织有状态的 Agent 工作流。
+- [MCP 官方文档](https://modelcontextprotocol.io/docs/getting-started/intro)：了解 AI 应用如何连接外部工具和数据。
 
-[Claude Platform 文档](https://platform.claude.com/docs/en/home)适合查阅 API、工具调用、模型能力、开发最佳实践和更新说明。
+## 入门课程与动手教程
 
-学习时可以围绕三个问题做笔记：模型收到哪些上下文？调用工具后谁决定执行？应用如何保存结果并处理失败？对安全开发来说，权限、工具输入输出和敏感数据边界尤其值得记录。
+先选一门跟着做完，比同时收藏很多教程更有用。
 
-### ChatGPT 与 OpenAI：产品实践与开发接口
+- [动手学大模型应用开发](https://datawhalechina.github.io/llm-universe/)：Datawhale 的中文教程，适合从应用开发入手；[项目源码](https://github.com/datawhalechina/llm-universe)也可以一起看。
+- [Hello Agents](https://github.com/datawhalechina/hello-agents)：从零了解智能体的原理与实践。
+- [Happy LLM](https://github.com/datawhalechina/happy-llm)：想往模型原理和构建方向深入时可以看。
+- [Hugging Face LLM Course](https://huggingface.co/learn/llm-course/)：学习大语言模型及 Hugging Face 生态的课程。
+- [Hugging Face Agents Course](https://huggingface.co/learn/agents-course/)：围绕 Agent 基础与实践组织的课程。
+- [RAG from Scratch](https://github.com/langchain-ai/rag-from-scratch)：通过示例了解检索增强生成的基本思路。
+- [Prompt Engineering Guide](https://github.com/dair-ai/Prompt-Engineering-Guide)：查阅提示词、上下文、RAG 和 Agent 相关资料。
 
-[ChatGPT Learn](https://learn.chatgpt.com/docs)适合了解 ChatGPT 的使用方式；[OpenAI Developers](https://developers.openai.com/)提供 API、工具和 Agent 开发资料。
+一个适合练手的小项目是知识库问答：先做文档导入、检索和回答，再检查答案能否追溯到原文、是否会读到不该读的数据。
 
-建议把产品功能和开发接口分开学习：前者关注如何提出任务、检查结果；后者关注请求、工具调用、状态、错误处理和数据流。官方文档的更新日志适合用来核对能力是否发生变化。
+## Agent 与 AI 安全项目
 
-### LangChain / LangGraph：理解 Agent 运行流程
+Agent 不只生成文字，还可能调用工具和读写文件。下面这些项目适合从不同角度了解它的风险与防护。
 
-[LangChain 官方文档](https://docs.langchain.com/oss/python/langchain/overview)介绍模型、工具与中间件的组合；[LangChain 参考文档](https://reference.langchain.com/)可作为查找具体接口的入口。
+- [AxoraSecurity/agentguard](https://github.com/AxoraSecurity/agentguard)：关注 Agent 技能、敏感信息和运行时动作的安全检查。
+- [WhitzardAgent/AgentGuard](https://github.com/WhitzardAgent/AgentGuard)：围绕 Agent 工具调用的访问控制，提供不同框架的集成。它与上面的 AgentGuard 是不同项目。
+- [AgentSight](https://github.com/eunomia-bpf/agentsight)：从系统层观察 AI Agent 行为，适合关注 eBPF 和可观测性的读者。
+- [garak](https://github.com/NVIDIA/garak)：大模型漏洞扫描工具，可用来了解常见模型安全测试方向。
+- [promptfoo](https://github.com/promptfoo/promptfoo)：用于测试提示词、Agent 和 RAG，也支持 AI 安全评测。
+- [AgentDojo](https://github.com/ethz-spylab/agentdojo)：用于评估针对 LLM Agent 的攻击与防御。
 
-学习框架时，不妨先画出一次任务的执行链：用户输入 → 模型决策 → 工具执行 → 结果返回 → 下一步决策，再看状态、重试、人工确认和可观测性分别放在哪里。框架不是安全边界，外部工具仍需要自己的权限和输入校验。
+读这类项目时，我会先看它保护什么、在哪里拦截、能看到哪些信息，以及出问题后能不能追踪。项目介绍可以帮助了解设计思路，实际防护效果还需要结合自己的场景测试。
 
-## 二、系统教程：从基础走到动手实践
+## 安全研究与资讯
 
-### Datawhale：动手学大模型应用开发
-
-[在线教程](https://datawhalechina.github.io/llm-universe/) | [GitHub 仓库](https://github.com/datawhalechina/llm-universe)
-
-这是一个面向初学开发者的大模型应用开发教程，适合按章节建立知识框架，再结合当前官方文档动手验证。建议边学边做一个小型知识库问答应用：先完成文档切分、检索和回答，再检查检索内容能否追溯、错误答案如何发现，以及数据是否越权。
-
-## 三、开源项目：把安全概念落到执行链
-
-### AgentGuard：从不同实现看 Agent 防护
-
-同名项目不止一个，不能只凭名字判断功能：
-
-- [AxoraSecurity/agentguard](https://github.com/AxoraSecurity/agentguard)：项目介绍聚焦 Agent 技能、敏感信息与运行时动作的安全检查。适合研究它如何描述检测规则、运行时评估和信任管理。
-- [WhitzardAgent/AgentGuard](https://github.com/WhitzardAgent/AgentGuard)：项目介绍将其定位为面向 AI Agent 的零信任安全基础，适合研究工具使用场景中的访问控制及框架集成方式。
-
-阅读这类项目时，我会分别记录：**保护对象、拦截位置、可见上下文、规则来源、误报处理和绕过边界**。以上是根据项目公开介绍整理的阅读方向，并不代表已经对其防护效果做过独立验证。
-
-## 四、安全研究与行业动态：发现问题，再回到原始资料
-
-### 模安局：AI 安全与治理
-
-[模安局](https://moanju.org/)关注生成式 AI 治理、安全评测、内容安全和 Agent 风险边界。适合作为安全议题的索引：先了解问题背景，再沿文中引用查阅标准、论文或原始技术资料。
-
-### AIHOT：跟踪资讯线索
-
-[AIHOT](https://aihot.news/)汇集 AI 新闻和热点，适合快速发现值得跟进的话题。资讯是线索，不等于结论：遇到模型能力、开源协议或安全漏洞等重要信息时，应继续核对官方公告、论文或项目仓库。
-
-## 五、把资源串成一条学习路线
-
-1. **先建立基础**：用 Datawhale 教程跑通一个小应用，记录模型、检索和工具之间的数据流。
-2. **再对照官方文档**：分别阅读 Claude、OpenAI 与 LangChain 的相关文档，标出接口能力、限制和版本。
-3. **接着做安全分析**：挑选一个 AgentGuard 项目，跟踪一次工具调用如何被检查；尝试设计正常、越权和提示注入等测试样例。
-4. **最后持续更新**：用模安局梳理安全议题，用 AIHOT 发现新线索，再回到原始资料核实。
-
-每次学习可以留下四项记录：**解决什么问题、信息从哪里来、自己验证了什么、还有哪些不确定**。这样积累的内容既适合复盘，也能逐步沉淀为自己的技术判断。
+- [OWASP GenAI Security Project](https://genai.owasp.org/)：查阅生成式 AI 和 Agent 的安全风险、测试与防护资料。
+- [MITRE ATLAS](https://atlas.mitre.org/)：了解针对 AI 系统的攻击技术和案例。
+- [模安局](https://moanju.org/)：关注 AI 安全、治理、评测和 Agent 风险，适合顺着话题继续找论文与技术资料。
+- [AIHOT](https://aihot.news/)：快速了解 AI 领域的新动态；遇到重要消息，再去看官方公告或原始资料。
